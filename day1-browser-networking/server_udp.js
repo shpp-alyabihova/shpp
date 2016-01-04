@@ -5,6 +5,7 @@ var dgram = require('dgram');
 var server = dgram.createSocket('udp4');
 function get_date(){
 	var currentTime = new Date();
+	currentTime.setHours(currentTime.getHours() + 2);
 	console.log(currentTime.toUTCString());
 }
 

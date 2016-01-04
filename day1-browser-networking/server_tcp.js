@@ -5,6 +5,7 @@ var PORT = 8080;
 
 function get_date(){
 	var currentTime = new Date();
+	currentTime.setHours(currentTime.getHours() + 2);
 	console.log(currentTime.toUTCString());
 }
 
@@ -15,12 +16,12 @@ net.createServer(function(socket) {
     var clientAdress = socket.remoteAddress;
 	var clientPort = socket.remotePort;
     // We have a connection - a socket object is assigned to the connection automatically
-    console.log('CONNECTED: ' + socket.remoteAddress +':'+ socket.remotePort);
+    console.log('CONNECTED: ' + clientAdress +':'+ clientPort);
     
     // Add a 'data' event handler to this instance of socket
     socket.on('data', function(data) {
         
-        console.log('DATA ' + socket.remoteAddress + ': ' + data);
+        console.log('DATA ' + clientAdress + ': ' + data);
         // Write the data back to the socket, the client will receive it as data from the server
         socket.write(data);
         
