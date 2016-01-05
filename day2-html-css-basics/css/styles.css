@@ -1,0 +1,250 @@
+body{
+    background: #f0f0f0;
+    color: #878787;
+    font-size: 1.1em;
+    font-family: Open Sans, serif;
+}
+.main{
+    margin: 0 auto;
+    width: 960px;
+}
+.clearfix:after{
+    content: '';
+    display: table;
+    clear: both;
+}
+.page-header, .page-top{
+    border-bottom: 1px solid #d6d6d6;
+}
+.logo, .greeting{
+    float: left;
+    margin: 28px 35px 28px 0px;
+}
+div .menu{
+    float: right;
+    margin: 28px 0px;
+}
+.menu ul {
+    float: right;
+    padding: 0 10px;
+    display: block;
+    list-style: none;
+}
+
+.menu li {
+    display: inline-block;
+    margin-left: 1em;
+}
+
+.menu a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #222222;
+    font-size: 0.6em;
+}
+
+.menu a:hover {
+    color: #ad6069;
+}
+#portfolio{
+    color: #ad6069;
+}
+.greeting{
+    width: 660px;
+    padding-right: 20px;
+    font-size: 1.3em;
+    line-height: 150%;
+}
+
+.social li{
+    margin-left: 0.3em;
+}
+.social > ul{
+    margin: 10px 0;
+}
+
+span{
+    display: block;
+    margin: 0px 20px 0 25px;
+    font-size: 1.2em;
+}
+
+div .social{
+    width: 240px;
+    float: right;
+    border-left: 1px solid #d6d6d6;
+}
+.slides{
+    margin: 38px 0;
+}
+
+.slide{
+    float: left;
+    margin: 10px 0;
+    width: 245px;
+    height: 223px;
+}
+.slide:nth-child(4n){
+    width: 225px;
+}
+
+figure{
+    margin: 0;
+}
+.gallery img{
+    margin: 0;
+    width: 225px;
+    height: 183px;
+}
+
+figcaption{
+    width:225px;
+    height: 20px;
+    margin-top: -5px;
+    padding: 10px 0;
+    background: #ffffff;
+    color: #222222;
+    text-align: center;
+    box-shadow: 1px 1px 6px 0 #d6d6d6;
+}
+
+.page-bottom{
+    margin: 4px 0;
+    padding: 30px 0;
+}
+
+.column{
+    width: 320px;
+    float: left;
+}
+.column .header{
+    width: 285px;
+    padding: 10px;
+    background: #ffffff;
+    color: #222222;
+    box-shadow: 1px 2px 6px 0 #d6d6d6;
+}
+section .twitter{
+    margin-left: 8px;
+}
+
+.right{
+    float: right;
+
+}
+.post-img{
+
+    display: inline-block;
+    margin: 12px 0;
+    padding: 5px 5px 0 5px;
+    background-color: white;
+}
+.post-img img{
+    width: 54px;
+    height: 54px;
+}
+.post, .twitter-post{
+    position: relative;
+    width: 250px;
+}
+.post-text{
+    display: inline-block;
+    font-size: 0.8em;
+
+}
+.post-title{
+    position: absolute;
+    top: 12px;
+    left: 74px;
+    color: #222222;
+}
+
+.post-date{
+    position: absolute;
+    top: 50px;
+    left: 74px;
+}
+
+.twitter-post{
+    margin-left: 8px;
+    width: 285px;
+}
+.twitter-img{
+    width: 15px;
+    height: 15px;
+    background-image: url('../img/icon-bird.png');
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.twitter-info, .twitter-date{
+    margin: 15px 0 0 28px;
+    font-size: 0.9em;
+}
+.twitter > .first{
+    border-bottom: 1px solid #d6d6d6;
+}
+.twitter-date{
+    margin-bottom: 15px;
+}
+
+form{
+    float: right;
+    width: 285px;
+}
+input, textarea{
+    width: 285px;
+    margin: 15px 15px 0 -19px;
+    padding: 10px;
+    background-color: #d6d6d6;
+    border: none;
+    color: #222222;
+}
+button{
+    padding: 8px 25px;
+    margin: 12px -18px;
+    border: #222222;
+    background: linear-gradient(#363636, #545454, #363636);
+    color: white;
+}
+
+button:hover{
+    background: linear-gradient(#545454, #686868, #545454);
+}
+
+.page-bottom a{
+    text-decoration: none;
+    color: #ad6069;
+}
+.page-bottom a:hover{
+    text-decoration: underline;
+}
+.line{
+    margin-top: 54px;
+    height: 20px;
+    background: url('../img/footer-line.png');
+}
+
+footer{
+    background: #222222;
+    height: 54px;
+    width: 100%;
+    font-size: 0.8em;
+    position: relative;
+}
+.footer-text{
+    position: absolute;
+    left: 465px;
+    top: 20px;
+}
+.go-to-top{
+    position: absolute;
+    right: 465px;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    background: #000000 url("../img/icon-top.png") no-repeat 50% 0;
+}
+.go-to-top:hover{
+    background-position: 50% 98%;
+}
