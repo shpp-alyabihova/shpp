@@ -11,11 +11,11 @@
         <div class="container">
             <div class="inputBox">
                 <input type="checkbox" id="checkAll" class="check">
-                <label for="checkAll"><div class="checkField"></div></label>
-                <input type="text" id="newTask" name="newTask" class="taskField" autofocus onkeydown="readValue(event)">
+                <label for="checkAll"><div class="checkField" id="mark"></div></label>
+                <input type="text" id="newTask" class="taskField" autofocus onkeydown="readValue(event)">
             </div>
             <div class="toDoList" name="activeTasks">
-                <div class="list">
+                <div class="list" id="tasksField">
                 </div>
                 <div class="line"></div>
                 <div class="panel"  oninput="leftTasks.value=activeTasks.value">
