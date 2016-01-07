@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>toDoList</title>
+        <script type="text/javascript" src="js/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+    </head>
+    <body>
+        <h1>To Do List</h1>
+        <div class="container">
+            <div class="inputBox">
+                <input type="checkbox" id="checkAll" class="check">
+                <label for="checkAll"><div class="checkField"></div></label>
+                <input type="text" id="newTask" name="newTask" class="taskField" autofocus onkeydown="readValue(event)">
+            </div>
+            <div class="toDoList" name="activeTasks">
+                <div class="list">
+                </div>
+                <div class="line"></div>
+                <div class="panel"  oninput="leftTasks.value=activeTasks.value">
+                    <button class="left">to do:<output name="leftTasks">0</output></button>
+                    <button class="all">all</button>
+                    <button class="active">active</button>
+                    <button class="done">done</button>
+                    <button class="clear">clear</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

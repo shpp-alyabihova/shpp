@@ -1,0 +1,74 @@
+.container {
+    width: 600px;
+    border: 2px solid #222222;
+    border-radius: 5px;
+    outline-offset: 5px;
+    margin: 50px auto;
+}
+
+h1{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.toDoList, .newTask{
+    margin: 10px;
+}
+
+.line{
+    border-bottom: 1px solid #222222;
+    margin: 40px 10px 10px;
+}
+
+.inputBox{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+#newTask{
+    border: 1px solid #222222;
+    margin-left: 10px;
+    flex-grow: 1;
+    outline: none;
+}
+label{
+    margin: auto;
+    z-index: 1;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #222222;
+    transition:all 0.3s ease-in-out;
+}
+input[type="checkbox"]:checked ~ label {
+    width: 21px;
+    height: 10px;
+    border-top-style: none;
+    border-right-style: none;
+    transform: rotate(-45deg);
+}
+.check{
+    display: none;
+}
+button{
+    border-radius: 5%;
+    box-shadow: 1px 1px 6px 0 #d6d6d6;
+    width: 70px;
+    padding: 5px 0px;
+    border: 1px solid #222222;
+    background: linear-gradient(#363636 0%, #545454 75%, #363636 100%);
+    color: #efefef;
+    display: block;
+}
+button:hover{
+    background: linear-gradient(#545454 0%, #686868 75%, #545454 100%);
+}
+
+.panel{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+output{
+    margin: auto 10px;
+}
