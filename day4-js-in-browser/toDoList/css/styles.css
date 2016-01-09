@@ -51,31 +51,77 @@ input[type="checkbox"]:checked ~ label {
 button{
     border-radius: 5%;
     box-shadow: 1px 1px 6px 0 #d6d6d6;
-    width: 70px;
+    width: 75px;
+    height: 25px;
     padding: 5px 0px;
     border: 1px solid #222222;
-    background: linear-gradient(#363636 0%, #545454 75%, #363636 100%);
+    background: linear-gradient(#545454 0%, #686868 75%, #545454 100%);
+
     color: #efefef;
     display: block;
+    outline: none;
 }
 button:hover{
-    background: linear-gradient(#545454 0%, #686868 75%, #545454 100%);
+    background: linear-gradient(#343434 0%, #545454 75%, #343434 100%);
 }
 
 .panel{
     display: flex;
     justify-content: space-between;
     margin: 10px;
+
 }
 
 output{
     margin: auto 10px;
 }
 
-.taskStatus:checked + .toDo{
+.taskStatus:checked ~ .toDo{
     text-decoration: line-through;
 }
 
 .toDo{
     padding: 0 10px;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.leftTasks{
+    width: 20px;
+    height: 15px;
+    margin-left: 5px;
+    text-align: center;
+    border: none;
+    background: linear-gradient(#545454 -20%, #686868 80%, #545454 100%);
+    color: #fff;
+}
+.panel > .left{
+    background: linear-gradient(#545454 0%, #686868 75%, #545454 100%);
+}
+
+
+.singleTask{
+    margin: 10px 0;
+    padding-bottom: 5px;
+}
+
+.singleTask:hover{
+    background-color: #efefef;
+    cursor: pointer;
+
+}
+
+
+.delTask{
+    float: right;
+    margin-right: 5px;
+    font-size: 1.5em;
+    visibility: hidden;
+}
+
+.singleTask:hover .delTask{
+    visibility: visible;
 }

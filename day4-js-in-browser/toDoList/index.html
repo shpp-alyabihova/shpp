@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>toDoList</title>
-        <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript" src="js/script.js" async></script>
         <link rel="stylesheet" type="text/css" href="css/styles.css">
     </head>
     <body>
@@ -18,12 +18,12 @@
                 <div class="list" id="tasksField">
                 </div>
                 <div class="line"></div>
-                <div class="panel"  oninput="leftTasks.value=activeTasks.value">
-                    <button class="left">to do:<output name="leftTasks">0</output></button>
-                    <button class="all">all</button>
-                    <button class="active">active</button>
-                    <button class="done">done</button>
-                    <button class="clear">clear</button>
+                <div class="panel">
+                    <button class="left">to do:<input type="text" value="0" class="leftTasks"></button>
+                    <a href="#" class="push allTasks"><button class="all">all</button></a>
+                    <a href="#" class="push activeTasks"><button class="active">active</button></a>
+                    <a href="#" class="push doneTasks"><button class="done">done</button></a>
+                    <a href="#" class="push clearTasks"><button class="clear">clear</button></a>
                 </div>
             </div>
         </div>
