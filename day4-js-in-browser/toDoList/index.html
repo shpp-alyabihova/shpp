@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>toDoList</title>
-        <script type="text/javascript" src="js/script.js" async></script>
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
-    </head>
-    <body>
-        <h1>To Do List</h1>
-        <div class="container">
-            <div class="inputBox">
-                <input type="checkbox" id="checkAll" class="check">
-                <label for="checkAll"><div class="checkField" id="mark"></div></label>
-                <input type="text" id="newTask" class="taskField" autofocus onkeydown="readValue(event)">
-            </div>
-            <div class="toDoList" name="activeTasks">
-                <div class="list" id="tasksField">
-                </div>
-                <div class="line"></div>
-                <div class="panel">
-                    <button class="left">to do:<input type="text" value="0" class="leftTasks"></button>
-                    <a href="#" class="push allTasks"><button class="all">all</button></a>
-                    <a href="#" class="push activeTasks"><button class="active">active</button></a>
-                    <a href="#" class="push doneTasks"><button class="done">done</button></a>
-                    <a href="#" class="push clearTasks"><button class="clear">clear</button></a>
-                </div>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <title>toDoList</title>
+    <script type="text/javascript" src="js/script.js" async></script>
+    <!--<script type="text/javascript" src="js/cache.js" async></script>-->
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+<h1>To Do List</h1>
+<div class="container">
+    <div class="inputBox">
+        <input type="checkbox" id="checkAll" class="check">
+        <label for="checkAll"><div class="checkField" id="mark"></div></label>
+        <input type="text" id="newTask" class="taskField" autofocus onkeydown="readValue(event)">
+    </div>
+    <div class="toDoList" name="activeTasks">
+        <div class="list" id="tasksField">
         </div>
-    </body>
+        <div class="line"></div>
+        <div class="panel">
+            <button class="left">to do:<input type="text" value="0" class="leftTasks"></button>
+            <a href="#" class="allTasks active"><button class="push all active">all</button></a>
+            <a href="#" class="activeTasks"><button class="push current">active</button></a>
+            <a href="#" class="doneTasks"><button class="push done">done</button></a>
+            <a href="#" class="clearTasks"><button class="push clear">clear</button></a>
+        </div>
+    </div>
+</div>
+</body>
 </html>
