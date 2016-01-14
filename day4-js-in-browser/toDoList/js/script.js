@@ -3,6 +3,7 @@ var toDoList = document.getElementById('tasksField');
 var allActiveTasks = 0;
 var activeEditableToDo = null;
 var storageData = {
+    'storageKey' : 'storageData',
     'data' : {
         'activeMod' : 'all',
         'toDoList' : {}
@@ -13,7 +14,7 @@ var storageData = {
             'title' : title,
             'status' : false
         };
-        localStorage.setItem('storageData', JSON.stringify(this.data));
+        localStorage.setItem(this.storageKey, JSON.stringify(this.data));
         return id;
     },
     'edit' : function(id, title, status){
@@ -22,23 +23,30 @@ var storageData = {
                 'title' : title,
                 'status' : status
             };
-            localStorage.setItem('storageData', JSON.stringify(this.data));
+            localStorage.setItem(this.storageKey, JSON.stringify(this.data));
         }
     },
     'del' : function(id) {
         if (typeof this.data.toDoList[id] != 'undefined') {
             delete this.data.toDoList[id];
-            localStorage.setItem('storageData', JSON.stringify(this.data));
+            localStorage.setItem(this.storageKey, JSON.stringify(this.data));
         }
     },
     'setMode' : function(button){
         this.data.activeMod = button;
-        localStorage.setItem('storageData', JSON.stringify(this.data));
+        localStorage.setItem(this.storageKey, JSON.stringify(this.data));
     },
     'readStorage' : function(){
-        var data = JSON.parse(localStorage.getItem('storageData'));
-        if(data){
-            this.data = data;
+        var data = localStorage.getItem(this.storageKey);
+        if (data) {
+            try {
+                data = JSON.parse(data);
+                if(data){
+                    this.data = data;
+                }
+            } catch(ex) {
+                alert(ex);
+            }
         }
     }
 };
@@ -158,18 +166,22 @@ function checkAllPoints(){
 
 function updateActiveTaskCount() {
     var allTasks = document.querySelectorAll('.taskStatus');
-    var counterActiveTasks = 0;
-    for (var i = 0; i < allTasks.length; i++) {
-        if (allTasks[i].checked == false) {
-            counterActiveTasks++;
+    if (allTasks.length) {
+        var counterActiveTasks = 0;
+        for (var i = 0; i < allTasks.length; i++) {
+            if (allTasks[i].checked == false) {
+                counterActiveTasks++;
+            }
         }
-    }
-    allActiveTasks = counterActiveTasks;
-    output.setAttribute('value', allActiveTasks);
-    if (counterActiveTasks) {
-        mainCheck.checked = false;
+        allActiveTasks = counterActiveTasks;
+        output.setAttribute('value', allActiveTasks);
+        if (counterActiveTasks) {
+            mainCheck.checked = false;
+        } else {
+            mainCheck.checked = true;
+        }
     } else {
-        mainCheck.checked = true;
+        mainCheck.checked = false;
     }
 }
 
@@ -251,11 +263,10 @@ function deactivateButtons() {
 
 //======================================================================================================================
 //lockalStorage.init
-storageData.readStorage();
-for(var id in storageData.data.toDoList){
-    addTaskToList(id, storageData.data.toDoList[id].title, storageData.data.toDoList[id].status);
-}
 
-document.querySelector('.' + storageData.data.activeMod).dispatchEvent(new Event('click'));
-
-updateActiveTaskCount();
+    storageData.readStorage();
+    for(var id in storageData.data.toDoList){
+        addTaskToList(id, storageData.data.toDoList[id].title, storageData.data.toDoList[id].status);
+    }
+    document.querySelector('.' + storageData.data.activeMod).click();
+    updateActiveTaskCount();
