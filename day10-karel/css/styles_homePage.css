@@ -1,0 +1,249 @@
+body{
+    background-image: url("../img/background.jpg");
+    background-attachment: fixed;
+    color: #dedede;
+    font-family: Open Sans, serif;
+    margin: 0;
+    padding: 0;
+
+}
+.clearfix::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+figure img {
+    width: 130px;
+    height: 30px;
+}
+header {
+    background: #34495e;
+}
+.header-page{
+    width: 960px;
+    margin: 0 auto;
+}
+
+.logo, .greeting{
+    float: left;
+    margin: 28px 35px 28px 0px;
+}
+.menu {
+    float: right;
+    margin: 28px 0px;
+    position: relative;
+}
+.menu ul, .social-menu ul {
+    float: right;
+    padding: 0 10px;
+    display: block;
+    list-style: none;
+}
+
+.social-menu{
+    float: right;
+    margin: 0px;
+    position: relative;
+}
+
+.menu li, .social-menu li {
+    display: inline-block;
+    margin-left: 50px;
+}
+
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #dedede;
+    font-size:1.5em;
+
+}
+
+.menu a:hover {
+    color: #3A78A1;
+    transition:all 0.3s ease-in-out;
+}
+
+.singUp::before {
+    z-index: 1;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.6);
+    visibility: hidden;
+}
+
+
+header .singUp-form{
+    padding: 10px;
+    box-sizing: border-box;
+    width: 800px;
+    height: 400px;
+    background: #fff;
+    border-radius: 5px;
+    position: absolute;
+    left: 0px;
+    top: 200px;
+    margin-left: -320px;
+    margin-top: -100px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    font-size: 1em;
+
+
+    visibility: hidden;
+}
+form{
+    width:250px;
+    margin:50px auto;
+    padding:20px 25px;
+    background:#f5f5f5;
+    border-radius: 10px;
+}
+label{
+    display:block;
+    margin-top:1em;
+    margin-bottom:0.5em;
+}
+label::first-letter {
+    text-transform: capitalize;
+}
+label:first-child{
+    margin-top:0;
+}
+input[type="text"],
+input[type="password"]{
+    width:100%;
+    border:1px solid #ccc;
+    padding:7px 5px;
+    background:white;
+    border-radius: 5px;
+    box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-sizing:border-box;
+}
+input[type="text"]:focus,
+input[type="password"]:focus{
+    box-shadow:0 0 5px rgba(50, 200, 255, 0.5);
+    outline:none;
+}
+input[type="submit"]{
+    display: block;
+    margin-top: 1em;
+    padding:5px 15px;
+    font-weight:bold;
+    color: #333;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom, #fff, #ddd);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow:0 1px 1px white;
+}
+
+.main {
+    width: 100%;
+    height: 200%;
+    background-image: url("/img/background.jpg");
+}
+
+.blue {
+    background-color: rgba(58, 120, 161, 0.9);
+    color: white;
+}
+
+
+.white {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #3A78A1;
+    margin: 0 auto;
+}
+h1, h2, p {
+    text-align: center;
+}
+p {
+    margin: 50px;
+    font-size: 1.5em;
+    padding-bottom: 100px;
+}
+h1 {
+    padding-top: 100px;
+    font-size: 3em;
+}
+
+.run {
+    background: linear-gradient(#3A78A1 90%, #2c3e50 100%);
+    padding: 10px;
+    border-radius: 5px;
+    width: 220px;
+    position: absolute;
+    top: 70%;
+    left: 44.3%;                //????????????????????????????????????????????????????????????????????????????????????
+    margin: 0 auto;
+    color: white;
+    margin-bottom: 100px;
+    font-size: 2em;
+
+}
+.run::after {
+    content: '';
+    width: 0;
+    height: 0;
+
+}
+
+.run:hover {
+    background: linear-gradient(#4E86AB 90%, #3A78A1 100%);
+
+}
+.insert {
+    height: 100%;
+}
+.start-block > p {
+    padding-bottom: 200px;
+}
+.start-block {
+    position: relative;
+}
+.middle {
+    width: 960px;
+    margin: 0 auto;
+}
+
+footer {
+    background: #34495e;
+    width: 100%;
+    height: 200px;
+}
+.footer-page {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.footer-page .info img {
+    margin: 0px 0 10px 0;
+    width: 130px;
+    height: 30px;
+}
+.footer-page .year {
+    padding: 20px 0;
+    font-size: 12px;
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+}
+footer section {
+    display: inline-block;
+    width: 320px
+}
+
+.info, .contacts {
+    padding: 50px 0 0 0;
+    float: left;
+}
+.spread {
+    padding: 50px 0 0 0;
+}
