@@ -1,10 +1,16 @@
+@font-face {
+    font-family: 'Bitter';
+    src: local('Bitter'), local('Bitter-Regular'), url('../fonts/bitter.woff2') format('woff2'), url('../fonts/bitter.woff') format('woff'), url('../fonts/bitter.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
 body{
-    background-image: url("../img/background.jpg");
+    background-image: url("../img/background1.jpg");
     background-attachment: fixed;
     color: #dedede;
-    font-family: Open Sans, serif;
     margin: 0;
     padding: 0;
+    font-family: Bitter;
 
 }
 .clearfix::after{
@@ -13,8 +19,8 @@ body{
     clear: both;
 }
 figure img {
-    width: 130px;
-    height: 30px;
+    width: 180px;
+    height: 100px;
 }
 header {
     background: #34495e;
@@ -23,10 +29,9 @@ header {
     width: 960px;
     margin: 0 auto;
 }
-
-.logo, .greeting{
+.logo {
     float: left;
-    margin: 28px 35px 28px 0px;
+
 }
 .menu {
     float: right;
@@ -45,10 +50,11 @@ header {
     margin: 0px;
     position: relative;
 }
-
+.menu li {
+    margin-left: 50px;
+}
 .menu li, .social-menu li {
     display: inline-block;
-    margin-left: 50px;
 }
 
 a {
@@ -76,12 +82,17 @@ a {
     visibility: hidden;
 }
 
+header p {
+    margin: 0;
+    padding: 0;
+}
+
 
 header .singUp-form{
     padding: 10px;
     box-sizing: border-box;
-    width: 800px;
-    height: 400px;
+    width: 730px;
+    height: 310px;
     background: #fff;
     border-radius: 5px;
     position: absolute;
@@ -91,16 +102,21 @@ header .singUp-form{
     margin-top: -100px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     font-size: 1em;
-
-
+    z-index: 2;
+    color: #333;
     visibility: hidden;
 }
-form{
-    width:250px;
-    margin:50px auto;
+form, .social{
+    width:300px;
+    height: 250px;
     padding:20px 25px;
     background:#f5f5f5;
     border-radius: 10px;
+    float: left;
+}
+.social {
+    margin-left: 10px;
+    height: 250px;
 }
 label{
     display:block;
@@ -120,92 +136,147 @@ input[type="password"]{
     padding:7px 5px;
     background:white;
     border-radius: 5px;
-    box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.2);
-    box-sizing:border-box;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
 }
 input[type="text"]:focus,
 input[type="password"]:focus{
     box-shadow:0 0 5px rgba(50, 200, 255, 0.5);
     outline:none;
 }
+
 input[type="submit"]{
-    display: block;
-    margin-top: 1em;
-    padding:5px 15px;
-    font-weight:bold;
-    color: #333;
+    display: inline-block;
+    width: 130px;
+}
+
+input[type="submit"], .networks{
+    margin-top: 30px;
+    padding: 5px 15px;
+    font-weight: bold;
     background: white;
     border: none;
     border-radius: 5px;
     background-image: linear-gradient(to bottom, #fff, #ddd);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     text-shadow:0 1px 1px white;
+    cursor: pointer;
+}
+input:last-child {
+    float: right;
+}
+
+input[type="submit"]:hover {
+    background-image: linear-gradient(to bottom, #ddd, #bbb);
 }
 
 .main {
     width: 100%;
-    height: 200%;
-    background-image: url("/img/background.jpg");
 }
 
 .blue {
     background-color: rgba(58, 120, 161, 0.9);
     color: white;
 }
+.social img {
+    width: 16px;
+    height: 16px;
+    float: left;
+    padding-left: 5px;
+}
 
+.social > .networks {
+    padding: 7px;
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+    margin-top: 25px;
+ }
+.indent {
+    margin-top: 15px;
+    height: 15px;
+}
 
 .white {
     background-color: rgba(255, 255, 255, 0.9);
     color: #3A78A1;
     margin: 0 auto;
 }
-h1, h2, p {
+.h1, .h2, p {
     text-align: center;
 }
 p {
-    margin: 50px;
+    /*margin: 50px;*/
     font-size: 1.5em;
     padding-bottom: 100px;
 }
-h1 {
+
+
+.start-block p {
+    padding-bottom: 0px;
+    margin-bottom: 0;
+}
+.h1 {
     padding-top: 100px;
     font-size: 3em;
+    font-weight: bold;
+}
+.h2 {
+    margin-top: 30px;
+    font-size: 2em;
+    font-weight: bold;
 }
 
 .run {
-    background: linear-gradient(#3A78A1 90%, #2c3e50 100%);
-    padding: 10px;
+    background: linear-gradient(#3A78A1 0%, #2c3e50 100%);
+    padding: 15px 20px;
     border-radius: 5px;
-    width: 220px;
-    position: absolute;
-    top: 70%;
-    left: 44.3%;                //????????????????????????????????????????????????????????????????????????????????????
-    margin: 0 auto;
-    color: white;
-    margin-bottom: 100px;
+    position: relative;
+    width: 35%;
+    height: 10%;
+    left: 50%;
+    top: -100px;
+    transform: translate(-50%, -50%);
+    color: #eeedf5;
     font-size: 2em;
+    border: none;
 
 }
 .run::after {
     content: '';
+    position: absolute;
     width: 0;
     height: 0;
-
+    border-style: solid;
+    border-width: 12.5px 0 12.5px 27px;
+    border-color: transparent transparent transparent white;
+    margin: 5px 5px 5px 15px;
+    opacity: 0;
 }
 
-.run:hover {
+.run:hover::after {
+    opacity: 1;
     background: linear-gradient(#4E86AB 90%, #3A78A1 100%);
+    transition: all 0.7s ease-in-out;
 
 }
-.insert {
-    height: 100%;
+.run:hover {
+    padding-left: 0px;
+    width: 260px;
+    transition: all 0.5s;
+    cubic-bezier(.17,.67,.57,1.14);
+    color: white;
 }
+/*.insert {*/
+    /*height: 100px;*/
+/*}*/
 .start-block > p {
     padding-bottom: 200px;
 }
 .start-block {
     position: relative;
 }
+
 .middle {
     width: 960px;
     margin: 0 auto;
@@ -222,9 +293,9 @@ footer {
 }
 
 .footer-page .info img {
-    margin: 0px 0 10px 0;
-    width: 130px;
-    height: 30px;
+    margin: -40px 0 0px 0;
+    width: 60px;
+    height: 90px;
 }
 .footer-page .year {
     padding: 20px 0;
@@ -246,4 +317,63 @@ footer section {
 }
 .spread {
     padding: 50px 0 0 0;
+}
+
+footer .menu-button {
+    width: 36px;
+    height: 36px;
+    background: url("../img/ikonki.png") no-repeat -40px -118px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #34495e;
+    transition:all 0.5s ease-in-out;
+}
+
+footer .facebook {
+    background: #4463AB url("../img/icons1.png") no-repeat 12px -40px;
+}
+footer .vk {
+    background: #4C759F url("../img/icons1.png") no-repeat -60px -40px;
+}
+footer .tweeter {
+    background: #36BBDE url("../img/icons1.png") no-repeat -130px -40px;
+}
+footer .google {
+    background: #DD4B39 url("../img/icons1.png") no-repeat -210px -40px;
+}
+footer .youTube {
+    background: #C33935 url("../img/icons1.png") no-repeat -280px -38px;
+}
+footer .menu-button:hover {
+    transition:all 0.5s ease-in-out;
+}
+footer .facebook:hover {
+    background: transparent url("../img/icons1.png") no-repeat 12px 0px;
+}
+footer .vk:hover {
+    background: transparent url("../img/icons1.png") no-repeat -60px  0px;
+}
+footer .tweeter:hover {
+    background: transparent url("../img/icons1.png") no-repeat -130px  0px;
+}
+
+footer .google:hover {
+    background: transparent url("../img/icons1.png") no-repeat -210px  0px;
+}
+footer .youTube:hover {
+    background: transparent url("../img/icons1.png") no-repeat -280px  0px;
+}
+
+.shpp {
+    font-family: arial;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+
+}
+.sh {
+    color: black;
+}
+.plus {
+    color: #27ae60;
 }
