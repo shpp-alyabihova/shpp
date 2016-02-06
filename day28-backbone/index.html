@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>toDoList</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+    <h1>To Do List</h1>
+    <div class="container">
+        <div class="inputBox">
+            <input type="checkbox" id="checkAll" class="check">
+            <label for="checkAll"><div class="checkField" id="mark"></div></label>
+            <input type="text" id="newTask" class="taskField" autofocus>
+        </div>
+        <div class="toDoList" name="activeTasks">
+            <ul class="list" id="tasksField"></ul>
+            <div class="line"></div>
+            <div class="panel">
+                <button class="left">to do:<span id="leftTasks">0</span></button>
+                <a class="allTasks active"><button class="push all active">all</button></a>
+                <a class="activeTasks"><button class="push current">active</button></a>
+                <a class="doneTasks"><button class="push done">done</button></a>
+                <a class="clearTasks"><button class="push clear">clear</button></a>
+            </div>
+        </div>
+    </div>
+    <script type="text/template" id="task_template">
+        <div class="singleTask">
+            <input type="checkbox" class="taskStatus"  <%= done ? 'checked="checked"' : '' %> />
+            <span class="toDo"><%- task_text %></span>
+            <div class="delTask">×</div>
+        </div>
+        <input class="edit" type="text" value="<%- task_text %>" />
+    </script>
+    <script type="text/javascript" src="vendor/underscore.js"></script>
+    <script type="text/javascript" src="vendor/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="vendor/backbone.js"></script>
+    <script type="text/javascript" src="js/backbone.localStorage.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>
