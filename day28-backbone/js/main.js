@@ -1,6 +1,6 @@
 
 $(function() {
-
+    Backbone.emulateHTTP = true;
 
     var template = function (id) {
         return _.template($('#' + id).html());
@@ -11,6 +11,7 @@ $(function() {
         defaults: function () {
             return {
                 task_text: "new task",
+                id: this.cid,
                 done: false,
                 hide: false,
                 visible: true
@@ -24,6 +25,7 @@ $(function() {
         },
 
         remove: function () {
+            console.log(this.get('id'));
             this.destroy();
         },
 
@@ -47,11 +49,10 @@ $(function() {
 
         model: Task_model,
 
-        localStorage: new Store("todosList-backbone"),
+       // localStorage: new Store("todosList-backbone"),
 
-        /*sync: function (method, model, option) {
+        url: '/todo/update',
 
-        },*/
 
         done: function () {
             return this.filter(function (task) {
@@ -75,8 +76,13 @@ $(function() {
             return this.filter(function (task) {
                 return task.get("visible");
             });
+        },
+
+        send_to_server: function () {
+            Backbone.sync('update', this);
         }
-    });
+
+});
 
     var todoList = new TodoList_collection();
 
@@ -89,8 +95,8 @@ $(function() {
 
         initialize: function () {
             this.model.bind('destroy', this.remove, this);
-            this.model.bind('change:hide', this.hide_task(), this);
-            this.model.bind('change:visible', this.show_task(), this);
+            this.model.bind('change:hide', this.hide_task, this);
+            this.model.bind('change:visible', this.show_task, this);
             this.model.bind('change', this.render, this);
         },
 
@@ -124,34 +130,34 @@ $(function() {
 
         remove_changing: function () {
             var val = this.input.val();
-            if (val.trim()) {
+            var start_val = this.model.get('task_text');
+            if (val.trim())
                 this.model.save({task_text: val});
-            }
+            else
+                this.input.val(start_val);
             this.$el.removeClass('changing');
         },
 
         change_task: function (e) {
             var key = (e.which || e.keyCode);
-            if (key == 13 || key == 27) {
-                if (key == 27) {
-                    this.input.val('');
-                }
+            if (key == 13)
                 this.remove_changing();
-            }
-        },
-
-        show_task: function () {
-            this.$el.removeClass("hidden");
+            todoList.send_to_server();
         },
 
         hide_task: function () {
+            console.log('just hidden');
             this.$el.addClass("hidden");
+        },
+
+        show_task: function () {
+            console.log('just shown');
+            this.$el.removeClass("hidden");
         }
 
     });
 
     var TodoList_view = Backbone.View.extend({
-
         el: $('.container'),
 
         initialize: function () {
@@ -168,7 +174,6 @@ $(function() {
             todoList.bind('add', this.add_single_task, this);
             todoList.bind('reset', this.add_all_tasks, this);
             todoList.bind('all', this.render, this);
-
             todoList.fetch();
         },
 
@@ -182,9 +187,11 @@ $(function() {
         },
 
         render: function () {
-            this.allStatus.chacked = !todoList.undone().length;
-            console.log(todoList.undone().length);
             this.left_tasks.text(todoList.undone().length);
+            if (todoList.undone().length)
+                this.allStatus.checked = false;
+            else
+                this.allStatus.checked = true;
         },
 
         events: {
@@ -214,42 +221,42 @@ $(function() {
             }
         },
 
-        del_done: function (clbtn) {
+        del_done: function () {
             this.set_active_button(this.buttons.button_clear);
             _.each(todoList.done(), function (task) {
-                task.remove()
+                task.remove();
             });
 
             return false;
         },
 
-        show_done: function (k) {
+        show_done: function () {
             this.set_active_button(this.buttons.button_done);
-            _.each(todoList.undone(), function (task) {
-                task.hide()
-            });
             _.each(todoList.done(), function (task) {
-                task.show()
+                task.show();
+            });
+            _.each(todoList.undone(), function (task) {
+                task.hide();
             });
         },
 
         show_current: function () {
             this.set_active_button(this.buttons.button_current);
-            _.each(todoList.done(), function (task) {
-                task.hide()
-            });
             _.each(todoList.undone(), function (task) {
-                task.show()
+                task.show();
+            });
+            _.each(todoList.done(), function (task) {
+                task.hide();
             });
         },
 
         show_all: function () {
             this.set_active_button(this.buttons.button_all);
             _.each(todoList.undone(), function (task) {
-                task.show()
+                task.show();
             });
             _.each(todoList.done(), function (task) {
-                task.show()
+                task.show();
             });
         },
 

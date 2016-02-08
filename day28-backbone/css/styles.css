@@ -91,7 +91,7 @@ a{
 }
 
 
-.leftTasks{
+#leftTasks{
     width: 20px;
     height: 15px;
     margin-left: 5px;
@@ -115,6 +115,19 @@ a{
     background-color: #efefef;
     cursor: pointer;
 }
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+/*.list li {
+    margin: 0;
+}*/
+
+.list li.changing .singleTask{
+    display: none;
+
+}
 
 .list li.hidden {
     display: none;
@@ -124,7 +137,9 @@ a{
     display: inherit;
     z-index: 2;
     position: relative;
-    width: inherit;
+    padding-left: 30px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .edit {
